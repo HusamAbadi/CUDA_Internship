@@ -33,7 +33,7 @@ void vecAdd(float* A, float* B, float* C, int n){
 int main(){
     const int n = 5;
     float a[5] = {1, 2, 3, 4, 5};
-    float b[5] = {5, 4, 3, 2, 1};
+    float b[5] = {10, 11, 12, 13, 14};
     float c[5];
 
     vecAdd(a, b, c, n);
