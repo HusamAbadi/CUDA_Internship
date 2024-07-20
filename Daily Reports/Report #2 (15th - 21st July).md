@@ -22,3 +22,17 @@
 #- Book Reading : 53-60 (3.5, 3.6: Kernel Functions and threading, Summary)
 
 #- Video Wathcing : Intro to CUDA (part 5): Memory Model - By Josh Holloway
+
+#- Practicing : I tried to Solve Exercise 3.1 in the book.
+
+# Day 11th (July 18th):
+
+#- Book Reading : 63-68 (4.0 - 4.1: Data Parallelism Execution Model - CUDA Thread Organization)
+
+#- Practicing : I tried to Solve Exercise 3.2 in the book in Page 61.
+
+# Day 12th (July 19th - Friday):
+
+#- Book Reading : Pages 68 & 69 (4.2 Mapping Threads to Multidimensional Arrays)
+
+# Day 13th (July 20th):
