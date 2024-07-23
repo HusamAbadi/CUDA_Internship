@@ -26,7 +26,7 @@ void picture(float* h_Pin, float* h_Pout, int n, int m) {
 
     // Define block and grid dimensions
     dim3 dimBlock(16, 16, 1);
-    dim3 dimGrid((n + dimBlock.x - 1) / dimBlock.x, (m + dimBlock.y - 1) / dimBlock.y, 1);
+    dim3 dimGrid(ceil(n/16), ceil(m/16));
 
     // Launch the kernel
     pictureKernel<<<dimGrid, dimBlock>>>(d_Pin, d_Pout, n, m);
@@ -40,8 +40,8 @@ void picture(float* h_Pin, float* h_Pout, int n, int m) {
 }
 
 int main() {
-    int n = 76;
-    int m = 62;
+    int n = 32;
+    int m = 24;
 
     // Allocate host memory
     float *h_Pin = (float *)malloc(n * m * sizeof(float));
