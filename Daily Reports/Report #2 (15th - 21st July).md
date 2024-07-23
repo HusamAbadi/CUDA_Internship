@@ -36,3 +36,11 @@
 #- Book Reading : Pages 68 & 69 (4.2 Mapping Threads to Multidimensional Arrays)
 
 # Day 13th (July 20th):
+
+#- Book Reading : Pages 70-76 (4.2 Mapping Threads to Multidimensional Arrays - 4.3 Matrix-Matrix Multiplication)
+
+#- Practicing : I improved on the previous exercise. I tried to Solve Exercise 3.2 in the book.
+
+# Day 13th (July 21st):
+
+#- Book Reading : Pages 76-81 (Continue Reading Chapter 4.3 Matrix-Matrix Multiplication).
