@@ -1,19 +1,19 @@
-# Day 14th (July 22nd):
+# Day 14 (July 22nd):
 
 #- Practicing : Modified Book Example 4.2 pictureKernel
 
 
-# Day 15th (July 23rd):
+# Day 15 (July 23rd):
 
 #- Book Reading: pages 81-85 (4.4 Synchronization and Transparent Scalability - 4.6 Querying Device Properties)
 
 
-# Day 16th (July 24th):
+# Day 16 (July 24th):
 
 #- Book Reading: pages 85-91 (4.6 Querying Device Properties - 4.8 Summary)
 
 
-# Day 17th (July 25th):
+# Day 17 (July 25th):
 
 #- Book Reading: pages 92-94 (Exercises)
     I tried to solve Chapter 4 exercises and managed to get part of them done.
@@ -23,12 +23,12 @@
     He also highlighted the chapters that are most important from the book to not spend much time on not so important chapters.
 
 
-# Day 18th (July 26th):
+# Day 18 (July 26th):
 
 #- I tried to understand the Matlab "top88" program.
 
 
-# Day 18th (July 27th):
+# Day 19 (July 27th):
 
 #- Practicing : Created deviceProperties Program to check the properties of the devices in the system, 
     and these are the properties of my device:
@@ -45,3 +45,6 @@
         Compute Capability: 7.5
 
 #- Video Wathcing : Optimization Course in MATLAB (1# Video of the course) - By Fathy Abdelraziq
+
+# Day 20 (July 28th):
+#- Book Reading: pages 95-97 (5 CUDA Memories, 5.1 Importance of memory access efficiency)
