@@ -1,52 +1,54 @@
 #include <stdio.h>
 #include <cuda_runtime.h>
 
-__global__ void matrixAddKernel(float* A, float* B, float* C, int N){
-    int i = threadIdx.x + blockIdx.x * blockDim.x;
-    int j = threadIdx.y + blockIdx.y * blockDim.y;
-    int index = i * N + j;
-    if(i < N && j < N){
-        A[index] = B[index] + C[index];
+__global__ void matrixVecMultKernel(float* A, float* B, float* C, int N) {
+    int row = threadIdx.x + blockIdx.x * blockDim.x;
+    if (row < N) {
+        float result = 0.0f;
+        for (int col = 0; col < N; ++col) {
+            result += B[row * N + col] * C[col];
+        }
+        A[row] = result;
     }
 }
 
 
-void matrixVecDotMult(float* A, float* B, float* C, int N){
-    int size = N * sizeof(float);
+void matrixVecMult(float* A, float* B, float* C, int N){
+    int sizeA = N * sizeof(float);         // Size for the result vector
+    int sizeB = N * N * sizeof(float);     // Size for the matrix
+    int sizeC = N * sizeof(float);         // Size for the input vector
     float *d_A, *d_B, *d_C;
 
-    cudaMalloc((void **)&d_A, size);
+    cudaMalloc((void **)&d_A, sizeA);
+    cudaMalloc((void **)&d_B, sizeB);
+    cudaMalloc((void **)&d_C, sizeC);
 
-    cudaMalloc((void **)&d_B, size * N);
-    cudaMemcpy(d_B, B, size, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_B, B, sizeB, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_C, C, sizeC, cudaMemcpyHostToDevice);
 
-    cudaMalloc((void **)&d_C, size);
-    cudaMemcpy(d_C, C, size, cudaMemcpyHostToDevice);
+    dim3 threadsPerBlock(16);
+    dim3 blocksPerGrid((N + threadsPerBlock.x - 1) / threadsPerBlock.x);
 
-    dim3 threadsPerBlock(16, 16);
-    dim3 blocksPerGrid((N + threadsPerBlock.x - 1) / threadsPerBlock.x,
-                        (N + threadsPerBlock.y - 1) / threadsPerBlock.y);
+    matrixVecMultKernel<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, N);
 
-    matrixAddKernel<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, N);
+    cudaMemcpy(A, d_A, sizeA, cudaMemcpyDeviceToHost);
 
-    cudaMemcpy(A, d_A, size, cudaMemcpyDeviceToHost);
     cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
 }
 
 int main(){
     const int n = 2;
-    float a[n];
-    float b[n * n] = {1, 2, 3, 4};
-    float c[n] = {5, 6};
+    float a[n]; // Result vector
+    float b[n * n] = {1, 2, 3, 4}; // 2x2 matrix
+    float c[n] = {5, 6}; // Vector
 
-    matrixVecDotMult(a, b, c, n);
-
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            printf("%1.0f ", a[i * n + j]);
-        }
-        printf("\n");
+    matrixVecMult(a, b, c, n);
+    // Print the result vector
+    for (int i = 0; i < n; i++) {
+        printf("%1.0f ", a[i]);
     }
+    printf("\n");
+
     cudaDeviceSynchronize();
     return 0;
 }
