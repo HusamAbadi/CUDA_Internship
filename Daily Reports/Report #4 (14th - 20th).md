@@ -9,6 +9,8 @@
 
 # Day 21 (Aug 17th):
 #- Book Revision: pages 70-79
-#- Video Watching: From Scratch: Matrix Multiplication in CUDA - By CoffeeBeforeArch
+#- Video Watching: (From Scratch: Matrix Multiplication in CUDA - By CoffeeBeforeArch)
 
 # Day 21 (Aug 18th):
+#- Video Watching: Continued watching the last video and continued learning the concepts.
+#- Practicing : I revised on the previous exercises and improved exercises of chapter 3 and 4.

@@ -26,7 +26,7 @@ void picture(float* h_Pin, float* h_Pout, int n, int m) {
 
     // Define block and grid dimensions
     dim3 dimBlock(16, 16, 1);
-    dim3 dimGrid(ceil(n/16), ceil(m/16));
+    dim3 dimGrid((n + dimBlock.x - 1) / dimBlock.x, (m + dimBlock.y - 1) / dimBlock.y);
 
     // Launch the kernel
     pictureKernel<<<dimGrid, dimBlock>>>(d_Pin, d_Pout, n, m);
@@ -56,10 +56,8 @@ int main() {
     picture(h_Pin, h_Pout, n, m);
 
     // Print some of the output values to check
-    for (int i = 0; i < n*m ; i++) {
-        printf("h_Pin[%d] = %f", i, h_Pin[i]);
-        printf (" --- ");
-        printf("h_Pout[%d] = %f\n", i, h_Pout[i]);
+    for (int i = 0; i < n*m; i++) {  // Print only the first 10 values for brevity
+        printf("h_Pin[%d] = %f --- h_Pout[%d] = %f\n", i, h_Pin[i], i, h_Pout[i]);
     }
 
     // Free host memory
