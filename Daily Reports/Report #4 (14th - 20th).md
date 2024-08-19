@@ -19,4 +19,6 @@
 # Day 22 (Aug 19th):
 #- Video Watching: Completed watching the last video and followed it to the end.
 #- Practicing : I finished working on the matrix-matrix multiplication problem and it worked successfully.
-    The program included a result verification function that checked if the result was correct by copmuting the multiplication on the CPU (It took the CPU several seconds to compute but miliseconds for the GPU).
+                    The program included a result verification function that checked if the result was correct by copmuting the multiplication on the CPU (It took the CPU several seconds to compute but miliseconds for the GPU).
+                I created another Vector Addition program that uses a different approach in initializing the vectors and generating random numbers.
+                    (In the output array the elements where added correctly up to the 98th index. The discrepancies start at index 99 and continue:)
