@@ -77,7 +77,7 @@ int main(){
     // if we don't use memCopy we need to call cudaDeviceSynchronize.
 
     // Verify our results
-    // verify_result(a, b, c, N);
-    // cout << "Success!" << endl;
+    verify_result(a, b, c, N);
+    cout << "Success!" << endl;
     return 0;
 }

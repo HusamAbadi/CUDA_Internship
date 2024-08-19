@@ -14,3 +14,9 @@
 # Day 21 (Aug 18th):
 #- Video Watching: Continued watching the last video and continued learning the concepts.
 #- Practicing : I revised on the previous exercises and improved exercises of chapter 3 and 4.
+    Started working on the matrix-matrix multiplication problem which was introduced in chapter 4.3 in the book.
+
+# Day 22 (Aug 19th):
+#- Video Watching: Completed watching the last video and followed it to the end.
+#- Practicing : I finished working on the matrix-matrix multiplication problem and it worked successfully.
+    The program included a result verification function that checked if the result was correct by copmuting the multiplication on the CPU (It took the CPU several seconds to compute but miliseconds for the GPU).
