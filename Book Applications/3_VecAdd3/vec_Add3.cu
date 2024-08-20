@@ -41,7 +41,7 @@ int main(){
     // Thread per CTA (256 Threads)
     int threads = 1 << 8;
     // Blocks per Grid (1 Block)
-    int blocks = (int)ceil(N / threads);
+    int blocks = (int)ceil(N / (float)threads);
     
     // Setup our kernel launch parameters
     dim3 block(threads, 1, 1);

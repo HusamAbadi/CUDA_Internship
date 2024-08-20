@@ -66,6 +66,8 @@ int main(){
     // Set our block/(CTA: Cooperative thread array) and grid dimensions
     int threads = 16;
     int blocks = (N + threads - 1) / threads;
+    //* OR
+    blocks = (int)ceil(N / (float)threads);
 
     // Setup our kernel launch parameters
     dim3 block(threads, threads, 1);
