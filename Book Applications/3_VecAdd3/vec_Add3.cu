@@ -16,6 +16,7 @@ void vecAddKernel(int* A, int* B, int* C, int n){
 }
 
 int main(){
+    // N = 1 << 9 = 512
     constexpr int N = 1 << 9;
     size_t bytes = N * sizeof(int);
 
@@ -40,7 +41,7 @@ int main(){
     
     // Thread per CTA (256 Threads)
     int threads = 1 << 8;
-    // Blocks per Grid (1 Block)
+    // Blocks per Grid (2 Block)
     int blocks = (int)ceil(N / (float)threads);
     
     // Setup our kernel launch parameters

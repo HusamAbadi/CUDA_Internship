@@ -17,6 +17,7 @@ int main() {
             continue;
         }
 
+        printf("Device Count %d\n", dev_count);
         printf("Device %d: %s\n", i, dev_prop.name);
         printf("  Total Global Memory: %zu bytes\n", dev_prop.totalGlobalMem);
         printf("  Shared Memory per Block: %zu bytes\n", dev_prop.sharedMemPerBlock);
@@ -30,6 +31,7 @@ int main() {
         printf("  Clock Rate: %d kHz\n", dev_prop.clockRate);
         printf("  Total Constant Memory: %zu bytes\n", dev_prop.totalConstMem);
         printf("  Compute Capability: %d.%d\n", dev_prop.major, dev_prop.minor);
+        printf("  Multiprocesor Count: %d\n", dev_prop.multiProcessorCount);
         // Add other properties as needed
     }
 
