@@ -76,6 +76,17 @@ int main(){
     dim3 block(threads, threads, 1); // (32, 32, 1) = 1,024 Threads
     dim3 grid(blocks, blocks, 1); // (32, 32, 1) = 1,024 Blocks
 
+    //? Why This Configuration is Optimal:
+        //! High Occupancy: 
+            //* Using 32x32 threads per block ensures that the GPU cores are fully utilized, with each warp of 32 threads working on contiguous data.
+        //! Memory Coalescing:
+            //* The 32x32 configuration allows for coalesced memory access patterns, which is important for memory-bound operations like matrix multiplication
+        //! .Scalability: 
+            //* This configuration scales well with larger matrices by simply increasing the grid dimensions, keeping the block size the same.
+        //! Balanced Resource Utilization: 
+            //* It effectively balances the use of shared memory, registers, and cores across the GPU's streaming multiprocessors (SMs).
+
+
     // Launch our kernel
     //* Uncomment these for pre-fetching 'a' and 'b' vectors to device memory (To enhance performance)
     cudaMemPrefetchAsync(a, bytes, id);

@@ -28,9 +28,9 @@ int main(){
     
     // Allocate memory on the GPU
     int *d_a, *d_b, *d_c;
-    cudaMalloc(&d_a, bytes);
-    cudaMalloc(&d_b, bytes);
-    cudaMalloc(&d_c, bytes);
+    cudaMalloc((void **) &d_a, bytes);
+    cudaMalloc((void **) &d_b, bytes);
+    cudaMalloc((void **) &d_c, bytes);
     
     // Copy data to the GPU
     cudaMemcpy(d_a, a.data(), bytes, cudaMemcpyHostToDevice);

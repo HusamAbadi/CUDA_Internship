@@ -12,6 +12,7 @@ void vecAdd(float* A, float* B, float* C, int n){
     float *d_A, *d_B, *d_C;
 
     cudaMalloc((void **) &d_A, size);
+    // (void **): generic pointer type
     cudaMalloc((void **) &d_B, size);
     cudaMalloc((void **) &d_C, size);
     
